@@ -1,0 +1,4 @@
+name: user-auth-app
+recipe: laravel
+config:
+  webroot: app/public
