@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('show');
 });
+
+Route::get('login', [\App\Http\Controllers\AuthController::class, 'show'])
+  ->name('show');
+
+Route::post('login', [\App\Http\Controllers\AuthController::class, 'authForm'])
+  ->name('authForm');
+
+Route::get('user/{id}',
+  [\App\Http\Controllers\AuthController::class, 'userPage'])->name('userPage');
+
+Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout'])
+  ->name('logout');
